@@ -995,7 +995,7 @@ impl fmt::Display for SelectItem {
             SelectItem::UnnamedExpr(expr) => expr.fmt(f),
             SelectItem::ExprWithAlias { expr, alias } => {
                 expr.fmt(f)?;
-                f.write_str(" AS ")?;
+                f.write_str(" ")?;
                 alias.fmt(f)
             }
             SelectItem::QualifiedWildcard(kind, additional_options) => {
@@ -1086,7 +1086,7 @@ impl fmt::Display for ExprWithAlias {
         let ExprWithAlias { expr, alias } = self;
         write!(f, "{expr}")?;
         if let Some(alias) = alias {
-            write!(f, " AS {alias}")?;
+            write!(f, " {alias}")?;
         }
         Ok(())
     }
