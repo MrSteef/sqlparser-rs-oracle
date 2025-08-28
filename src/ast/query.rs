@@ -1902,7 +1902,7 @@ impl fmt::Display for TableFactor {
                     write!(f, " {sample}")?;
                 }
                 if let Some(alias) = alias {
-                    write!(f, " AS {alias}")?;
+                    write!(f, " {alias}")?;
                 }
                 if !index_hints.is_empty() {
                     write!(f, " {}", display_separated(index_hints, " "))?;
